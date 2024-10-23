@@ -78,3 +78,14 @@ fetch_button.pack(pady=10)
 # Create a button to copy the IP information to clipboard (disabled by default)
 copy_button = tk.Button(window, text="Copy to Clipboard", command=copy_to_clipboard, state="disabled")
 copy_button.pack(pady=10)
+
+# Create a button to save the IP information to a file (disabled by default)
+save_button = tk.Button(window, text="Save to File", command=save_to_file, state="disabled")
+save_button.pack(pady=10)
+
+# Create a label to display the IP information, initially empty
+ip_label = tk.Label(window, text="Click the Fetch IP info button to get your IP information", justify="left", anchor="w")
+ip_label.pack(padx=10, pady=10)
+
+# Run the application
+window.mainloop()
