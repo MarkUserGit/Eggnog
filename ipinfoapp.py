@@ -48,3 +48,21 @@ def display_ip_info():
     else:
         messagebox.showerror("Error", "Failed to fetch IP information.")
         return None
+        
+# Function to copy the IP information to clipboard
+def copy_to_clipboard():
+    info = ip_label.cget("text")
+    if info:
+        pyperclip.copy(info)
+        messagebox.showinfo("Success", "IP information copied to clipboard!")
+
+# Function to save IP information to a file
+def save_to_file():
+    info = ip_label.cget("text")
+    if info:
+        file_path = filedialog.asksaveasfilename(defaultextension=".txt",
+                                                 filetypes=[("Text files", "*.txt")])
+        if file_path:
+            with open(file_path, 'w') as file:
+                file.write(info)
+            messagebox.showinfo("Success", f"IP information saved to {file_path}")
