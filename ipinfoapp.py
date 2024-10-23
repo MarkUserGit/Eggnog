@@ -26,3 +26,25 @@ def get_ip_info():
             return None
     except Exception as e:
         return None
+
+# Function to display IP info in the GUI
+def display_ip_info():
+    ip_info = get_ip_info()
+    if ip_info:
+        formatted_info = (f"Public IPv4: {ip_info['Public IPv4']}\n\n"
+                          f"IPv6: {ip_info['IPv6']}\n\n"
+                          f"Country: {ip_info['Country']}\n\n"
+                          f"Region: {ip_info['Region']}\n\n"
+                          f"City: {ip_info['City']}\n\n"
+                          f"Postal Code: {ip_info['Postal Code']}\n\n"
+                          f"Latitude: {ip_info['Latitude']}\n\n"
+                          f"Longitude: {ip_info['Longitude']}\n\n"
+                          f"ISP: {ip_info['ISP']}\n\n"
+                          f"ASN: {ip_info['ASN']}")
+        ip_label.config(text=formatted_info)
+        copy_button.config(state="normal")  # Enable copy button
+        save_button.config(state="normal")  # Enable save button
+        return formatted_info
+    else:
+        messagebox.showerror("Error", "Failed to fetch IP information.")
+        return None
