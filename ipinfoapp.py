@@ -66,3 +66,15 @@ def save_to_file():
             with open(file_path, 'w') as file:
                 file.write(info)
             messagebox.showinfo("Success", f"IP information saved to {file_path}")
+# Create the main window
+window = tk.Tk()
+window.title("IP Information App")
+window.geometry("500x500")
+
+# Create a button to fetch IP information
+fetch_button = tk.Button(window, text="Fetch IP Info", command=display_ip_info)
+fetch_button.pack(pady=10)
+
+# Create a button to copy the IP information to clipboard (disabled by default)
+copy_button = tk.Button(window, text="Copy to Clipboard", command=copy_to_clipboard, state="disabled")
+copy_button.pack(pady=10)
